@@ -1,0 +1,34 @@
+def calcular_energia_cinetica(massa, velocidade):
+    """
+    Calcula a energia cinética de um objeto.
+    
+    Fórmula: Ec = m * v^2
+    
+    :param massa: Massa do objeto em kg (deve ser um número positivo)
+    :param velocidade: Velocidade do objeto em m/s (deve ser um número positivo)
+    :return: Energia cinética em Joules
+    """
+    if massa <= 0:
+        raise ValueError("A massa deve ser um valor positivo.")
+    
+    velocidade = abs(velocidade) # Considera apenas o valor absoluto da velocidade 
+    return 0.5 * massa * (velocidade **2)
+def main():
+    """
+    Função principal que solicita os dados do usuário e exibe o resultado.
+    """
+    try:
+        # Solicita entrada do usuário
+        massa = float(input("Digite a massa do objeto em kg: "))
+        velocidade = float(input("Digite a velocidade do objeto em m/s: "))
+        
+        # Calcula a energia cinética
+        energia = calcular_energia_cinetica(massa, velocidade)
+        
+        # Exibe o resultado
+        print(f"\nA energia cinética do objeto é {energia:.2f} Joules.")
+    except ValueError as e:
+        print(f"Erro: {e}")
+
+if __name__ == "__main__":
+    main()
